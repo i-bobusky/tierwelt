@@ -245,6 +245,88 @@
     gap: 8px;
   }
 
+  /* ── CONTACT FORM ── */
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--forest-green);
+    margin-bottom: 6px;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid rgba(74,124,89,0.2);
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: var(--warm-brown);
+    background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--forest-green);
+    box-shadow: 0 0 0 4px rgba(74,124,89,0.1);
+  }
+
+  textarea { resize: vertical; min-height: 110px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--forest-green);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(74,124,89,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .submit-btn:hover {
+    background: #3d6b4b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(74,124,89,0.35);
+  }
+
+  .submit-btn:active { transform: translateY(0); }
+
+  /* ── SUCCESS MESSAGE ── */
+  #success-msg {
+    display: none;
+    text-align: center;
+    padding: 24px;
+    background: var(--light-green);
+    border-radius: 16px;
+    margin-top: 16px;
+  }
+
+  #success-msg .big-icon { font-size: 48px; margin-bottom: 8px; }
+  #success-msg p { font-size: 16px; font-weight: 700; color: var(--forest-green); }
+  #success-msg small { color: var(--warm-brown); opacity: 0.7; font-size: 13px; }
+
   /* ── FOOTER ── */
   .footer {
     text-align: center;
@@ -287,6 +369,7 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 480px) {
     .features { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
     .card { padding: 22px 18px; }
   }
 
@@ -397,30 +480,60 @@
     </div>
   </div>
 
-  <!-- CONTACT -->
+  <!-- CONTACT FORM -->
   <div class="card" style="animation-delay:0.7s">
     <div class="card-title">📩 Anmeldung</div>
     <div class="deadline-badge">⏰ Anmeldung bis 24. Mai 2026</div>
-    <p style="font-size:15px;color:var(--warm-brown);margin-bottom:18px;line-height:1.6;">Melde dich direkt per E-Mail oder WhatsApp an – wir freuen uns auf euch!</p>
+    <p style="font-size:14px;color:var(--warm-brown);opacity:0.7;margin-bottom:18px;">Schreib uns direkt – wir freuen uns auf euch!</p>
 
-    <div style="display:flex;flex-direction:column;gap:12px;">
-      <a href="mailto:veronika.bobuska@gmail.com" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--warm-brown);font-size:15px;font-weight:700;background:var(--light-green);border-radius:14px;padding:14px 18px;">
-        <span style="font-size:28px;">✉️</span>
-        <div>
-          <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--forest-green);margin-bottom:2px;">E-Mail</div>
-          veronika.bobuska@gmail.com
+    <form id="contact-form" onsubmit="sendMessage(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Vorname & Name</label>
+          <input type="text" id="name" placeholder="Anna Müller" required>
         </div>
-      </a>
-      <a href="https://wa.me/41786858627" target="_blank" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--warm-brown);font-size:15px;font-weight:700;background:var(--light-green);border-radius:14px;padding:14px 18px;">
-        <span style="font-size:28px;">💬</span>
-        <div>
-          <div style="font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--forest-green);margin-bottom:2px;">WhatsApp</div>
-          078 685 86 27
+        <div class="form-group">
+          <label>Anzahl Kinder</label>
+          <select id="kids">
+            <option value="1">1 Kind</option>
+            <option value="2">2 Kinder</option>
+            <option value="3">3 Kinder</option>
+            <option value="4+">4+ Kinder</option>
+          </select>
         </div>
-      </a>
+      </div>
+      <div class="form-group">
+        <label>Deine E-Mail-Adresse</label>
+        <input type="email" id="email" placeholder="deine@email.ch" required>
+      </div>
+      <div class="form-group">
+        <label>Nachricht (optional)</label>
+        <textarea id="message" placeholder="Alter der Kinder, Fragen, Besonderheiten…"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">
+        🦁 Jetzt anmelden!
+      </button>
+    </form>
+
+    <div id="success-msg">
+      <div class="big-icon">🎉</div>
+      <p>Anmeldung gesendet! Wir freuen uns auf euch!</p>
+      <small>Eine Kopie wurde auch an dich gesendet.</small>
     </div>
 
-    <p class="spots-notice" style="margin-top:16px;">⚠️ Teilnehmerzahl begrenzt – frühzeitig anmelden!</p>
+    <p class="spots-notice">⚠️ Teilnehmerzahl begrenzt – frühzeitig anmelden!</p>
+
+    <div style="margin-top:20px;padding-top:16px;border-top:1px dashed rgba(74,124,89,0.2);">
+      <p style="font-size:13px;font-weight:700;color:var(--forest-green);margin-bottom:10px;">Oder direkt kontaktieren:</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a href="mailto:veronika.bobuska@gmail.com" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--warm-brown);font-size:14px;font-weight:700;background:var(--cream);border-radius:10px;padding:10px 14px;">
+          <span style="font-size:20px;">✉️</span> veronika.bobuska@gmail.com
+        </a>
+        <a href="https://wa.me/41786858627" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--warm-brown);font-size:14px;font-weight:700;background:var(--cream);border-radius:10px;padding:10px 14px;">
+          <span style="font-size:20px;">💬</span> WhatsApp: 078 685 86 27
+        </a>
+      </div>
+    </div>
   </div>
 
   <!-- FOOTER -->
@@ -431,6 +544,30 @@
   </div>
 
 </div>
+
+<script>
+function sendMessage(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const kids = document.getElementById('kids').value;
+  const message = document.getElementById('message').value;
+
+  const subject = encodeURIComponent(`Anmeldung Tierwelt Spielnachmittag – ${name}`);
+  const body = encodeURIComponent(
+    `Hallo Veronika,\n\nHiermit möchte ich uns für den Tierwelt Familien Spielnachmittag am 31. Mai 2026 anmelden.\n\n` +
+    `Name: ${name}\nAnzahl Kinder: ${kids}\nE-Mail: ${email}\n` +
+    (message ? `\nNachricht:\n${message}` : '') +
+    `\n\nLiebe Grüsse,\n${name}`
+  );
+
+  window.location.href = `mailto:veronika.bobuska@gmail.com?subject=${subject}&body=${body}`;
+
+  // Show success message
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+}
+</script>
 
 </body>
 </html>
