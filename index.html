@@ -299,6 +299,110 @@
     margin-top: 10px;
     opacity: 0.8;
   }
+
+  /* ── ORGANIZER ── */
+  .organizer-wrap {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .organizer-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 3px solid var(--light-green);
+    box-shadow: 0 4px 14px rgba(74,124,89,0.18);
+    flex-shrink: 0;
+  }
+
+  .organizer-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 22px;
+    color: var(--forest-green);
+    margin-bottom: 2px;
+  }
+
+  .organizer-role {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .organizer-bio {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--warm-brown);
+    margin-bottom: 14px;
+  }
+
+  .organizer-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--forest-green);
+    text-decoration: none;
+    background: var(--light-green);
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .organizer-link:hover {
+    background: var(--sage);
+    color: white;
+  }
+
+  /* ── PAST EVENTS ── */
+  .past-events-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .past-event-item {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(122,79,46,0.1);
+  }
+
+  .past-event-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .past-event-item:hover img { transform: scale(1.04); }
+
+  .past-event-label {
+    background: var(--light-green);
+    color: var(--forest-green);
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+    padding: 8px 12px;
+  }
+
+  .past-events-intro {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--warm-brown);
+    opacity: 0.85;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 480px) {
+    .organizer-wrap { flex-direction: column; align-items: center; text-align: center; }
+    .past-events-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -421,6 +525,36 @@
     </div>
 
     <p class="spots-notice" style="margin-top:16px;">⚠️ Teilnehmerzahl begrenzt – frühzeitig anmelden!</p>
+  </div>
+
+  <!-- ORGANIZER -->
+  <div class="card" style="animation-delay:0.8s">
+    <div class="card-title">🌟 Die Organisatorin</div>
+    <div class="organizer-wrap">
+      <img class="organizer-photo" src="images/veronika.jpg" alt="Veronika Bobuska" />
+      <div>
+        <div class="organizer-name">Veronika Bobuska</div>
+        <div class="organizer-role">Eventorganisatorin · Hünenberg</div>
+        <p class="organizer-bio">Ich organisiere seit mehreren Jahren mit viel Herz und Organisationstalent Familien- und Kinderanlässe in der Region Zentralschweiz. Mein Ziel: Kinder spielen, entdecken und lachen zu lassen – und Familien aus der Umgebung zusammenzubringen.</p>
+        <a class="organizer-link" href="https://i-bobusky.github.io/veronika/" target="_blank" rel="noopener">Mehr über mich →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAST EVENTS -->
+  <div class="card" style="animation-delay:0.85s">
+    <div class="card-title">📸 Frühere Anlässe</div>
+    <p class="past-events-intro">Jedes Jahr entstehen neue unvergessliche Momente – hier ein Blick auf vergangene Abenteuer.</p>
+    <div class="past-events-grid">
+      <div class="past-event-item">
+        <img src="images/ostern.JPG" alt="Oster-Anlass 2025" />
+        <div class="past-event-label">🐣 Oster-Anlass · 2025</div>
+      </div>
+      <div class="past-event-item">
+        <img src="images/halloween.JPG" alt="Halloween-Anlass 2024" />
+        <div class="past-event-label">🎃 Halloween · 2024</div>
+      </div>
+    </div>
   </div>
 
   <!-- FOOTER -->
