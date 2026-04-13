@@ -375,7 +375,8 @@
   .past-event-item img {
     width: 100%;
     aspect-ratio: 4 / 3;
-    object-fit: cover;
+    object-fit: contain;
+    background: #f0ebe3;
     display: block;
     transition: transform 0.4s ease;
   }
@@ -505,7 +506,10 @@
   <div class="card" style="animation-delay:0.7s">
     <div class="card-title">📩 Anmeldung</div>
     <div class="deadline-badge">⏰ Anmeldung bis 24. Mai 2026</div>
-    <p style="font-size:15px;color:var(--warm-brown);margin-bottom:18px;line-height:1.6;">Melde dich direkt per E-Mail oder WhatsApp an – wir freuen uns auf euch!</p>
+    <p style="font-size:15px;color:var(--warm-brown);margin-bottom:18px;line-height:1.6;">Melde dich direkt über das Formular oder per E-Mail / WhatsApp an – wir freuen uns auf euch!</p>
+    <a href="https://forms.gle/MGwPHQf5e7ekG91bA" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;background:var(--forest-green);color:white;font-family:'Fredoka One',cursive;font-size:18px;border-radius:16px;padding:16px 24px;margin-bottom:16px;transition:background 0.2s;">
+      📋 Jetzt anmelden
+    </a>
 
     <div style="display:flex;flex-direction:column;gap:12px;">
       <a href="mailto:veronika.bobuska@gmail.com" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--warm-brown);font-size:15px;font-weight:700;background:var(--light-green);border-radius:14px;padding:14px 18px;">
@@ -536,7 +540,6 @@
         <div class="organizer-name">Veronika Bobuska</div>
         <div class="organizer-role">Eventorganisatorin · Hünenberg</div>
         <p class="organizer-bio">Ich organisiere seit mehreren Jahren mit viel Herz und Organisationstalent Familien- und Kinderanlässe in der Region Zentralschweiz. Mein Ziel: Kinder spielen, entdecken und lachen zu lassen – und Familien aus der Umgebung zusammenzubringen.</p>
-        <a class="organizer-link" href="https://i-bobusky.github.io/veronika/" target="_blank" rel="noopener">Mehr über mich →</a>
       </div>
     </div>
   </div>
@@ -548,11 +551,29 @@
     <div class="past-events-grid">
       <div class="past-event-item">
         <img src="images/ostern.JPG" alt="Oster-Anlass 2025" />
-        <div class="past-event-label">🐣 Oster-Anlass · 2025</div>
+        <div class="past-event-label">🐣 Oster-Anlass</div>
       </div>
       <div class="past-event-item">
         <img src="images/halloween.JPG" alt="Halloween-Anlass 2024" />
-        <div class="past-event-label">🎃 Halloween · 2024</div>
+        <div class="past-event-label">🎃 Halloween</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEBURTSTAGE -->
+  <div class="card" style="animation-delay:0.9s">
+    <div class="card-title">🎂 Geburtstags-Anlässe</div>
+    <p class="past-events-intro">Unvergessliche Geburtstagserlebnisse für kleine Helden – mit Spielen, Lachen und ganz viel Magie.</p>
+    <div class="past-events-grid">
+      <div class="past-event-item">
+        <!-- Replace with actual image: save as images/geburtstag1.jpg -->
+        <img src="images/geburtstag1.jpg" alt="Geburtstags-Anlass" onerror="this.style.display='none'" />
+        <div class="past-event-label">🎉 Geburtstags-Anlass</div>
+      </div>
+      <div class="past-event-item">
+        <!-- Replace with actual image: save as images/geburtstag2.jpg -->
+        <img src="images/geburtstag2.jpg" alt="Geburtstags-Anlass" onerror="this.style.display='none'" />
+        <div class="past-event-label">🎈 Geburtstags-Anlass</div>
       </div>
     </div>
   </div>
